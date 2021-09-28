@@ -1,6 +1,6 @@
 {
-  "name": "fast-elephant/open-cater-sdk",
-  "description": "fast-elephant/open-cater-sdk",
+  "name": "fast-elephant/printer-sdk",
+  "description": "fast-elephant/printer-sdk",
   "type": "library",
   "require": {
     "php": "^7.0",
@@ -11,12 +11,12 @@
   },
   "autoload": {
     "psr-4": {
-      "FastElephant\\OpenCater\\": "src/"
+      "FastElephant\\Printer\\": "src/"
     }
   },
   "autoload-dev": {
     "psr-4": {
-      "FastElephant\\OpenCater\\Tests\\": "tests/"
+      "FastElephant\\Printer\\Tests\\": "tests/"
     }
   },
   "authors": [
