@@ -1,0 +1,37 @@
+{
+  "name": "fast-elephant/open-cater-sdk",
+  "description": "fast-elephant/open-cater-sdk",
+  "type": "library",
+  "require": {
+    "php": "^7.0",
+    "ext-json": "*",
+    "guzzlehttp/guzzle": ">=6.0.0"
+  },
+  "require-dev": {
+  },
+  "autoload": {
+    "psr-4": {
+      "FastElephant\\OpenCater\\": "src/"
+    }
+  },
+  "autoload-dev": {
+    "psr-4": {
+      "FastElephant\\OpenCater\\Tests\\": "tests/"
+    }
+  },
+  "authors": [
+    {
+      "name": "monkey",
+      "email": "blaserr93@163.com"
+    }
+  ],
+  "minimum-stability": "stable",
+  "license": "MIT",
+  "extra": {
+    "laravel": {
+      "providers": [
+        "PrinterServiceProvider"
+      ]
+    }
+  }
+}
