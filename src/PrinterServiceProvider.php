@@ -1,7 +1,7 @@
 <?php
 
 
-namespace FastElephant\OpenCater;
+namespace FastElephant\Printer;
 
 use Illuminate\Support\ServiceProvider;
 
