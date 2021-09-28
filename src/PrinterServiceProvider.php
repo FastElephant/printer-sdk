@@ -14,7 +14,9 @@ class PrinterServiceProvider extends ServiceProvider
      */
     public function boot()
     {
-        $this->publishes([$this->getConfigFile() => config_path('printer.php')]);
+        $this->publishes([
+            $this->getConfigFile() => config_path('printer.php'),
+        ]);
     }
 
     /**
@@ -24,11 +26,13 @@ class PrinterServiceProvider extends ServiceProvider
      */
     public function register()
     {
-        $this->mergeConfigFrom($this->getConfigFile(), 'printer');
+        $this->mergeConfigFrom(
+            $this->getConfigFile(), 'printer'
+        );
     }
 
     protected function getConfigFile()
     {
-        return __DIR__ . DIRECTORY_SEPARATOR;
+        return __DIR__ . DIRECTORY_SEPARATOR . '..' . DIRECTORY_SEPARATOR . 'config' . DIRECTORY_SEPARATOR . 'printer.php';
     }
 }
