@@ -4,7 +4,7 @@ namespace FastElephant\Printer;
 
 use GuzzleHttp\Client as HttpClient;
 
-class Client
+class PrinterClient
 {
     /**
      * 请求值
