@@ -118,6 +118,21 @@ class PrinterClient
     }
 
     /**
+     * 获取打印规则
+     * @param int $eventId
+     * @param string $deviceId
+     * @return array
+     */
+    public function queryRule(int $eventId, string $deviceId = '')
+    {
+        $param = [
+            'event_id' => $eventId,
+            'device_id' => $deviceId,
+        ];
+        return $this->call('config/rule/detail', $param);
+    }
+
+    /**
      * 测试打印
      * @param int $eventId
      * @return array
