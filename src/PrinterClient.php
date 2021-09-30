@@ -141,7 +141,6 @@ class PrinterClient
     {
         $param = [
             'event_id' => $eventId,
-            'auto' => 0
         ];
         return $this->call('task/print/test', $param);
     }
@@ -150,15 +149,13 @@ class PrinterClient
      * 打印
      * @param int $eventId
      * @param array $data
-     * @param int $auto
      * @return array
      */
-    public function print(int $eventId, array $data, int $auto = 0)
+    public function print(int $eventId, array $data)
     {
         $param = [
             'event_id' => $eventId,
             'data' => $data,
-            'auto' => $auto
         ];
         return $this->call('task/print/submit', $param);
     }
