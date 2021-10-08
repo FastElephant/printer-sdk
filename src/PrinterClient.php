@@ -58,29 +58,31 @@ class PrinterClient
     }
 
     /**
-     *  绑定/编辑
+     * 绑定/编辑
      * @param string $deviceId
      * @param string $deviceKey
-     * @return mixed
+     * @param int $brandId
+     * @return array
      */
-    public function bind(string $deviceId, string $deviceKey)
+    public function bind(string $deviceId, string $deviceKey, int $brandId)
     {
         $param = [
             'device_id' => $deviceId,
             'device_key' => $deviceKey,
+            'brand_id' => $brandId
         ];
         return $this->call('device/printer/bind', $param);
     }
 
     /**
      * 解绑
-     * @param string $deviceId
-     * @return mixed
+     * @param int $printerId
+     * @return array
      */
-    public function unbind(string $deviceId)
+    public function unbind(int $printerId)
     {
         $param = [
-            'device_id' => $deviceId,
+            'printer_id' => $printerId,
         ];
         return $this->call('device/printer/unbind', $param);
     }
@@ -88,30 +90,30 @@ class PrinterClient
     /**
      * 相关信息概览
      * @param int $eventId
-     * @param string $deviceId
+     * @param int $printerId
      * @return array
      */
-    public function overview(int $eventId = 0, string $deviceId = '')
+    public function overview(int $eventId = 0, int $printerId = 0)
     {
         $param = [
             'event_id' => $eventId,
-            'device_id' => $deviceId,
+            'printer_id' => $printerId,
         ];
         return $this->call('device/printer/overview', $param);
     }
 
     /**
      * 保存规则
-     * @param string $deviceId
+     * @param int $printerId
      * @param int $eventId
      * @param array $value
      * @return array
      */
-    public function saveRule(string $deviceId, int $eventId, array $value)
+    public function saveRule(int $printerId, int $eventId, array $value)
     {
         $param = [
             'event_id' => $eventId,
-            'device_id' => $deviceId,
+            'printer_id' => $printerId,
             'value' => $value
         ];
         return $this->call('config/rule/save', $param);
@@ -120,14 +122,14 @@ class PrinterClient
     /**
      * 获取打印规则
      * @param int $eventId
-     * @param string $deviceId
+     * @param int $printerId
      * @return array
      */
-    public function queryRule(int $eventId, string $deviceId = '')
+    public function queryRule(int $eventId, int $printerId = 0)
     {
         $param = [
             'event_id' => $eventId,
-            'device_id' => $deviceId,
+            'printer_id' => $printerId,
         ];
         return $this->call('config/rule/detail', $param);
     }
