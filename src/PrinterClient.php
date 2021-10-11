@@ -148,6 +148,19 @@ class PrinterClient
     }
 
     /**
+     * 清空打印
+     * @param int $printerId
+     * @return array
+     */
+    public function clearPrint(int $printerId)
+    {
+        $param = [
+            'printer_id' => $printerId,
+        ];
+        return $this->call('task/print/clear', $param);
+    }
+
+    /**
      * 打印
      * @param int $eventId
      * @param array $data
