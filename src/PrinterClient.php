@@ -193,23 +193,20 @@ class PrinterClient
 
         $this->request = $param;
 
-        $errMsg = '';
-
         $startTime = $this->millisecond();
 
         try {
             $strResponse = $client->post($apiUrl, ['json' => $this->request])->getBody()->getContents();
         } catch (\Exception $e) {
-            $errMsg = $e->getMessage();
-            $strResponse = '';
+            $strResponse = $e->getMessage();
+            return ['code' => 550, 'message' => $strResponse];
+        } finally {
+            $expendTime = intval($this->millisecond() - $startTime);
+            $this->monitorProcess($path, json_encode($this->request, JSON_UNESCAPED_UNICODE), $strResponse, $expendTime);
         }
 
-        $expendTime = intval($this->millisecond() - $startTime);
-
-        $this->monitorProcess($path, json_encode($this->request, JSON_UNESCAPED_UNICODE), $strResponse, $expendTime);
-
         if (!$strResponse) {
-            return ['code' => 555, 'msg' => $errMsg ?: '响应值为空', 'request_id' => ''];
+            return ['code' => 555, 'msg' => '响应值为空', 'request_id' => ''];
         }
 
         $arrResponse = json_decode($strResponse, true);
