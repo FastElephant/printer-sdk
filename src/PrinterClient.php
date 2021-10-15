@@ -109,7 +109,7 @@ class PrinterClient
      * @param int $printerId
      * @return array
      */
-    public function queryTemplates(string $size, int $eventId = 0, int $printerId = 0)
+    public function queryTemplates(int $printerId, int $eventId, string $size = '*')
     {
         $param = [
             'event_id' => $eventId,
