@@ -216,7 +216,7 @@ class PrinterClient
             $strResponse = $client->post($apiUrl, ['json' => $this->request])->getBody()->getContents();
         } catch (\Exception $e) {
             $strResponse = $e->getMessage();
-            return ['code' => 550, 'message' => $strResponse];
+            return ['code' => 550, 'msg' => $strResponse];
         } finally {
             $expendTime = intval($this->millisecond() - $startTime);
             $this->monitorProcess($path, json_encode($this->request, JSON_UNESCAPED_UNICODE), $strResponse, $expendTime);
