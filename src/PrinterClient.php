@@ -106,14 +106,12 @@ class PrinterClient
      * 获取模板列表
      * @param string $size
      * @param int $eventId
-     * @param int $printerId
      * @return array
      */
-    public function queryTemplates(int $printerId, int $eventId, string $size = '*')
+    public function queryTemplates(int $eventId, string $size = '')
     {
         $param = [
             'event_id' => $eventId,
-            'printer_id' => $printerId,
             'size' => $size
         ];
         return $this->call('config/template/list', $param);
