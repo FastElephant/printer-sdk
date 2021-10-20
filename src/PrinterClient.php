@@ -181,13 +181,15 @@ class PrinterClient
      * 打印
      * @param int $eventId
      * @param array $data
+     * @param string $orderId
      * @return array
      */
-    public function print(int $eventId, array $data)
+    public function print(int $eventId, array $data, string $orderId = '')
     {
         $param = [
             'event_id' => $eventId,
             'data' => $data,
+            'order_id' => $orderId
         ];
         return $this->call('task/print/submit', $param);
     }
